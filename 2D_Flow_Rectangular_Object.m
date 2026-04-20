@@ -1,11 +1,5 @@
 clear; clc; close all;
 
-% Simulation type: 
-% 1 - Particle Advection
-% 2 - Velocity Heat Map, 
-% 3 - Curl Heat Map
-TYPE = 3;
-
 % Simulation parameters
 s = 100;        % Grid size
 ar = 5;         % Aspect ratio
@@ -76,8 +70,7 @@ while ishandle(f)
     vx = interp2(vx, pvx, pvy, 'linear', 0);
     vy = interp2(vy, pvx, pvy, 'linear', 0);
 
-    % Visualization based on simulation type
-    if TYPE == 1
+    % Visualization 
         % Advect particles using Runge-Kutta 4th order method
         [px, py] = RK4(px, py, vx, vy, 1);
 
